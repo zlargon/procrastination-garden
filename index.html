@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<link href="https://use.fontawesome.com/releases/v5.0.6/css/all.css" rel="stylesheet"><!--icon resource-->
+    <link rel="icon" type="image/gif" href="./image/heartflower.png"/><!--the head icon-->
+	<title>[Wenhui Xu]Final Project</title>
+	<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+	<!--jquery library-->
+	<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/0.4.1/html2canvas.min.js"></script><!--html2canvas library-->
+	<script src="https://fastcdn.org/FileSaver.js/1.1.20151003/FileSaver.min.js"></script>
+	<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script><!--sweetalert library-->
+    <script
+       src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"
+       integrity="sha256-T0Vest3yCU7pafRw9r+settMBX6JkKN06dqBnpQ8d30="
+       crossorigin="anonymous"></script><!--jquery-ui library-->
+	<link rel="stylesheet" type="text/css" href="./css/finalMain.css"><!--connect with the css file-->
+	<link href="https://fonts.googleapis.com/css?family=Bad+Script|Courgette" rel="stylesheet"><!--font family resource-->
+	<link href="https://fonts.googleapis.com/css?family=Erica+One" rel="stylesheet"><!--font family resource-->
+    <link href="https://use.fontawesome.com/releases/v5.0.6/css/all.css" rel="stylesheet"><!--icon resource-->
+</head>
+<body>
+
+	<div id="container" class="innerContainer">
+    <!--the main page-->
+	<div id="mainPage" class="showing"><!--the Main Menu Page-->
+		<div id="gameName"></div><!--the title-->
+
+        <div id="buttonChoose" class="buttons"><!--the buttons-->
+        <i class="fas fa-user-secret"></i> Username: <br>
+        <input id ="userInput" type="text" name="textname" placeholder="Create your username"><!--input box for user name-->
+         <br>
+        <input id="easymode" type="radio" name="gameMode" value="easy" checked>&nbsp;Easy Mode&nbsp;&nbsp;<!--the game mode-->
+	    <input id="hardmode" type="radio" name="gameMode" value="hard" checked>&nbsp;Hard Mode&nbsp;&nbsp;<!--the game mode-->
+	    <br>
+
+        <button id="howToPlay"><i class="fas fa-eye"></i> How to play?</button><!--the "how to play" button-->
+          <br> <br>
+        <button id="start"><i class="far fa-play-circle"></i> Start</button><!--the "start" button-->
+  		</div>
+  		<img id="playmusic" src="./image/music-muted.svg" width="100" height="100">
+  		<img id="mutemusic" src="./image/music-player.svg" width="100" height="100">
+	</div>
+
+    <!--the task page-->
+	<div id="taskPage" class="hiding">
+		<div id="chooseTime">
+			<p>Hi, Dear <span id="userInforInTaskPage"></span>, You can set time for your task first!</p>
+			<button id="addCount" class="buttonShow">+</button>
+			<span class="countNumber"></span>
+			<button id="subtractCount" class="buttonShow">-</button>
+		</div>
+	    <br>
+
+		<div id="task">
+        <input id ="taskInput" type="text" name="taskname" placeholder="Create your task"><!--input box for a task-->
+		<h3 id="taskInfor"></h3>
+		</div>
+
+		<div id="clock">
+		<span id="minutes"></span>:<span id="seconds"></span>
+		</div>
+
+		<div id="button">
+			<button class="buttonShow taskStart">Start</button>
+			&nbsp;
+			<!--<button class="buttonShow pause">Pause</button>-->
+			<button class="buttonShow taskReset">Reset</button>
+			&nbsp;
+		    <button class="buttonShow taskBack">Back</button>
+		    &nbsp;
+		    <button class="buttonShow taskContinue">Go On</button>
+		    &nbsp;
+		    <button class="buttonShow taskFinish">Finish</button>
+		</div>
+
+	</div>
+
+    <!--the plant page-->
+
+	<div id="plantPage" class="hiding">
+	<h1>Dear, <span id="userInforInPlantPage"></span> You really did a good job!!</h1>
+	<p id="scoreEarn">Scores Earned: &nbsp;<span id="earn"></span>&nbsp;<img src="./image/coins.png" width="40" height="40"></p>
+	<p id="scorePick">Scores Picked: &nbsp;<span id="pick"></span>&nbsp;<img src="./image/coins.png" width="40" height="40"></p>
+
+	<button id="clearPlant" class="plantbutton">Clear selected</button>
+	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+	<button id="goToGarden" class="plantbutton">Go To Garden</button>
+
+	</div>
+    <!--the garden page-->
+	<div id="gardenpage">
+	<h1 id="userInforInGardenPage">Dear <span id="userInforInGP"></span>,<br>You have done <span id="taskInforInGP"></span> tasks!<br>
+		You have focused <span id="timeInforInGP"></span> minutes time!</h1>
+
+    <img id="mountain" src="./image/mountain.png" width="400" height="400">
+    <img id="leftmountains" src="./image/leftmountains.png" width="400" height="400">
+    <img id="foresthree" src="./image/foresthree.png" width="400" height="400">
+	<img id="rightMountain" src="./image/forestright.png" width="450" height="450">
+    <img id="parkwrite" src="./image/parkwrite.png" width="200" height="200">
+    <img id="house" src="./image/house.png" width="270" height="270">
+    <img id="swing" src="./image/swing.png" width="200" height="200">
+    <img id="bush" src="./image/bush.png" width="120" height="120">
+    <img id="photocamera" src="./image/photocamera.png" width="100" height="100">
+	</div>
+    <!--the background resource-->
+	<audio id="backgroundMusic" src="Yann_Tiersen_YAn_Tirsen_-_L_echec.wav" loop></audio><!--the background Music-->
+
+</div>
+
+<script type="text/javascript" src="./js/push.js"></script>
+<script type="text/javascript" src="./js/timeObject.js"></script>
+<script type="text/javascript" src="./js/mouseFlower.js"></script>
+<script type="text/javascript" src ="./js/backgroundMusic.js"></script>
+<script type="text/javascript" src="./js/finalMain.js"></script>
+</body>
+</html>
